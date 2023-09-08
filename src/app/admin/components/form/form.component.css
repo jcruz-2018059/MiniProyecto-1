@@ -1,6 +1,10 @@
-.row-color h1,
-.row-color p {
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    line-height: 0;
+.row-color {
+  background: linear-gradient(to right, #540099, #4c00ff);
+  height: 170px;
+}
+
+.row-color h1, p {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  line-height: 0;
 }
