@@ -1,5 +1,7 @@
+// Angular
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+// Project
 import { FormComponent } from './form.component';
 
 describe('FormComponent', () => {

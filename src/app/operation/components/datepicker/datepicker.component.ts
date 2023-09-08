@@ -1,6 +1,6 @@
+// Angular
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import * as moment from 'moment';
 import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS
@@ -11,6 +11,9 @@ import {
   MAT_DATE_LOCALE
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
+
+// Third Parties
+import * as moment from 'moment';
 
 const MY_FORMATS = {
   parse: {

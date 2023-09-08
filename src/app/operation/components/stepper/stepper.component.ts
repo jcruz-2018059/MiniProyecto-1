@@ -1,8 +1,10 @@
+// Angular
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
+
+// RXJS
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
