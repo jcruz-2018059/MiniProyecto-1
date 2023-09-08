@@ -1,0 +1,68 @@
+<div class="mt-5">
+  <!-----Inicio----->
+  <div class="row row-color p-4 rounded-3">
+    <div class="col-12 d-flex align-items-center">
+      <div>
+        <h1>Mini Proyecto Uno</h1>
+        <br />
+        <p>Tercera semana</p>
+      </div>
+    </div>
+  </div>
+
+  <!-----Sección 1----->
+  <div class="mt-4">
+    <h4>Mostrar datos en pantalla</h4>
+    <hr />
+    <form class="mt-5">
+      <label class="form-label" for="value">Ingresa un Valor</label>
+      <input
+        class="form-control"
+        [(ngModel)]="value"
+        (ngModelChange)="ngOnChanges()"
+        type="text"
+        name="value"
+      />
+    </form>
+    <div class="alert alert-primary mt-4">Valor: {{ value }}</div>
+  </div>
+
+  <!-----Sección 2----->
+  <div class="mt-5">
+    <h4>Time out</h4>
+    <hr />
+    <label class="form-label" for="value"></label>
+    <div class="row">
+      <div class="col-9">
+        <input
+          class="form-control"
+          [(ngModel)]="initialValue"
+          type="text"
+          name="value"
+        />
+      </div>
+      <button (click)="sendValue()" class="btn btn-primary rounded-0 col-3">
+        Enviar
+      </button>
+    </div>
+    <app-timeout [initialValue]="newValue"></app-timeout>
+  </div>
+
+  <!-----Sección 3----->
+  <div class="mt-5">
+    <h4>Destruir componente</h4>
+    <hr />
+    <div class="card text-center">
+      <div class="card-header"></div>
+      <div class="card-body m-3">
+        <h5 class="card-text">Destruir componente</h5>
+        <button
+          routerLink="/redirect/material"
+          class="btn btn-primary rounded-0"
+        >
+          Redireccionar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

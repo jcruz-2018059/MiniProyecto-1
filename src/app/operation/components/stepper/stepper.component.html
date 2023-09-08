@@ -1,0 +1,74 @@
+<ng-container [ngSwitch]="stepperOrientation | async">
+  <div *ngSwitchCase="'horizontal'">
+    Make your screen smaller to see a vertical stepper
+  </div>
+  <div *ngSwitchCase="'vertical'">
+    Make your screen larger to see a horizontal stepper
+  </div>
+</ng-container>
+
+<mat-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fecha de nacimiento</ng-template>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="firstCtrl"
+          required
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="firstFormGroup.get('firstCtrl')?.hasError('dateIsInvalid')">
+        <mat-error>La fecha debe ser menor que la fecha de hoy.</mat-error>
+      </div>
+      <div class="mt-3">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Nombre</ng-template>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="secondCtrl" required />
+      </mat-form-field>
+      <div
+        *ngIf="
+          secondFormGroup.get('secondCtrl')?.hasError('containsNonLetters')
+        "
+      >
+        <mat-error>Ingrese solo letras en el nombre.</mat-error>
+      </div>
+      <div class="mt-3">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <ng-template matStepLabel>DPI</ng-template>
+    <mat-slide-toggle [(ngModel)]="showDpiField">Activar</mat-slide-toggle>
+    <form *ngIf="showDpiField" [formGroup]="thirdFormGroup" class="mt-4">
+      <mat-form-field>
+        <mat-label>DPI</mat-label>
+        <input matInput formControlName="thirdCtrl" required />
+      </mat-form-field>
+      <div *ngIf="thirdFormGroup.get('thirdCtrl')?.hasError('invalidDpi')">
+        <mat-error>Ingrese un numero de 13 dígitos</mat-error>
+      </div>
+    </form>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

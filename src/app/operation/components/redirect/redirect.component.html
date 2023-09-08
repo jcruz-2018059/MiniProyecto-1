@@ -1,0 +1,113 @@
+<div class="mt-5">
+  <!-----Inicio----->
+  <div class="row row-color p-4 rounded-3">
+    <div class="col-12 d-flex align-items-center">
+      <div>
+        <h1>Angular Material</h1>
+        <br />
+        <p>Tercera semana</p>
+      </div>
+    </div>
+  </div>
+
+  <!---Date Picker-->
+  <div class="mt-4">
+    <h4>Date picker</h4>
+    <hr />
+
+    <div class="row mb-5">
+      <div class="col-6">
+        <p>Date picker con rango de fechas</p>
+        <mat-form-field>
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker1">
+            <input matStartDate placeholder="Start date" />
+            <input matEndDate placeholder="End date" />
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker1></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <p>Date picker, Min Value y Max Value</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            [min]="minDate"
+            [max]="maxDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p>Date picker, Selecciona Mes y Año</p>
+        <app-datepicker></app-datepicker>
+      </div>
+      <div class="col-6">
+        <p>Date picker, Fomato MMM DD, YYYY</p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker4" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker4"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker4></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <!---Boton FAB-->
+
+  <div class="mt-5">
+    <h4>Button FAB</h4>
+    <hr />
+    <div class="row">
+      <div class="col-1">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+          (click)="openDialog()"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+      <div class="col-1 d-flex justify-content-center align-items-center">
+        <p class="m-0">{{ name }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!---Table--->
+  <div class="mt-5">
+    <h4>Table</h4>
+    <hr />
+
+    <div class="mt-4">
+      <app-table></app-table>
+    </div>
+  </div>
+
+  <!---Stepper--->
+  <div class="mt-5">
+    <h4>Stepper</h4>
+    <hr />
+    <app-stepper></app-stepper>
+  </div>
+</div>

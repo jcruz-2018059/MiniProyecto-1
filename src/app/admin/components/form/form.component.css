@@ -1,0 +1,6 @@
+.row-color h1,
+.row-color p {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 0;
+}

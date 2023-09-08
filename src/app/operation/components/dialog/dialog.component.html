@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{ data.titulo }}</h1>
+<div mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input matInput formControlName="nombre" placeholder="Nombre" required />
+    <mat-error *ngIf="nombre.hasError('required')"
+      >El nombre es requerido.</mat-error
+    >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="botones">
+  <button mat-button (click)="onCancelarClick()">Cancelar</button>
+  <button mat-button (click)="onConfirmarClick()" [disabled]="form.invalid">
+    Confirmar
+  </button>
+</div>
