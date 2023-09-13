@@ -1,0 +1,193 @@
+<div class="mt-5">
+  <!--Inicio-->
+  <div class="row row-color p-4 rounded-3">
+    <div class="col-12 d-flex align-items-center">
+      <div>
+        <h1>Directivas y pipes</h1>
+        <br />
+        <p>Cuarta semana</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h4>Directive 1</h4>
+    <hr />
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Your number</mat-label>
+        <input matInput placeholder="00" appNumbercommas />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="mt-5">
+    <h4>Directive 2</h4>
+    <hr />
+
+    <div appChangecolor>Hola</div>
+  </div>
+
+  <div class="mt-5">
+    <h4>Directive 3</h4>
+    <hr />
+
+    <div appCopyicon>
+      Este es el texto que se copiará al hacer clic en este párrafo.
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h4>Pipes</h4>
+    <hr />
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Your text here</mat-label>
+        <input [(ngModel)]="text" type="text" name="text" matInput />
+      </mat-form-field>
+    </form>
+    <div>{{ text | cutText: 10 }}</div>
+  </div>
+
+  <div class="mt-5">
+    <h4>Formulario</h4>
+    <hr />
+
+    <form [formGroup]="form" class="mt-5 pb-5">
+      <div class="row">
+        <div class="col-6">
+          <p>Información personal</p>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" type="text" maxlength="40" />
+            <mat-error *ngIf="form.get('name')?.hasError('required')"
+              >Este campo es requerido.</mat-error
+            >
+            <mat-error *ngIf="form.get('name')?.hasError('whiteSpace')"
+              >No colocar espacios al principio ni al final.</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [max]="maxDate"
+              formControlName="birthday"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <mat-label>Nit</mat-label>
+            <input matInput formControlName="nit" />
+            <mat-error *ngIf="form.get('nit')?.hasError('required')"
+              >Este campo es requerido.</mat-error
+            >
+            <mat-error *ngIf="form.get('nit')?.hasError('textoNoValido')"
+              >No usar caracteres especiales.</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <p>Comentario</p>
+          <hr />
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Comentario</mat-label>
+            <textarea
+              matInput
+              formControlName="coment"
+              maxlength="200"
+            ></textarea>
+            <mat-error *ngIf="form.get('coment')?.hasError('required')"
+              >Este campo es requerido.</mat-error
+            >
+            <mat-error *ngIf="form.get('coment')?.hasError('outletter')"
+              >Completar campo.</mat-error
+            >
+            <mat-error *ngIf="form.get('coment')?.hasError('whiteSpace')"
+              >No colocar espacios al principio ni al final.</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-slide-toggle class="mb-5" (change)="showInputs()"
+        >Nuevo ingreso</mat-slide-toggle
+      >
+
+      <div class="row" *ngIf="isChecked">
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <mat-label>Telefono</mat-label>
+            <input matInput formControlName="phone" maxlength="8" />
+            <mat-error *ngIf="form.get('phone')?.hasError('required')"
+              >Este campo es requerido.</mat-error
+            >
+            <mat-error *ngIf="form.get('phone')?.hasError('pattern')"
+              >Solo datos numéricos.</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="address" />
+            <mat-error *ngIf="form.get('address')?.hasError('required')"
+              >Este campo es requerido.</mat-error
+            >
+            <mat-error *ngIf="form.get('address')?.hasError('whiteSpace')"
+              >No colocar espacios al principio ni al final.</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 d-flex justify-content-between">
+          <button
+            (click)="onSubmit()"
+            mat-raised-button
+            color="primary"
+            [disabled]="form.invalid"
+          >
+            Guardar
+          </button>
+          <button
+            (click)="resetForm()"
+            mat-stroked-button
+            color="primary"
+            [disabled]="form.invalid"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

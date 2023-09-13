@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
+    path: 'exercise',
+    loadChildren: () =>
+      import('./security/security.module').then(m => m.SecurityModule)
+  },
+  {
     path: '**',
     redirectTo: 'forms'
   }

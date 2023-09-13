@@ -1,0 +1,7 @@
+.row-color{
+    background: linear-gradient(to right, #540099, #4c00ff);
+    height: 170px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 0;
+}
