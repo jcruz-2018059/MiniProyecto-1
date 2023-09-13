@@ -10,7 +10,5 @@ export class CutTextPipe implements PipeTransform {
     } else {
       return value.substring(0, maxLetter) + '...';
     }
-
-    return value;
   }
 }

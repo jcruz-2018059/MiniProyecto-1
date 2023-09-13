@@ -2,7 +2,6 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 // Third Parties
-import { __values } from 'tslib';
 
 @Directive({
   selector: '[appNumbercommas]'

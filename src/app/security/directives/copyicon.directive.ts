@@ -31,12 +31,11 @@ export class CopyiconDirective {
     }
   }
 
-  private copyTextToClipboard(text: string) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
+  private async copyTextToClipboard(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      console.error('No se pudo copiar el texto en el portapapeles:', err);
+    }
   }
 }

@@ -82,7 +82,7 @@ export class ExerciseComponent {
     if (this.isChecked) {
       this.form
         .get('phone')
-        ?.setValidators([Validators.required, Validators.pattern(/^[0-9]+$/)]);
+        ?.setValidators([Validators.required, Validators.pattern(/^\d+$/)]);
       this.form
         .get('address')
         ?.setValidators([Validators.required, this.whiteSpace]);
