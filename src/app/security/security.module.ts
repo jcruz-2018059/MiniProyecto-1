@@ -10,6 +10,7 @@ import { CopyiconDirective } from './directives/copyicon.directive';
 import { SecurityRoutingModule } from './security-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { CutTextPipe } from './pipes/cut-text.pipe';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CutTextPipe } from './pipes/cut-text.pipe';
     NumbercommasDirective,
     ChangecolorDirective,
     CopyiconDirective,
-    CutTextPipe
+    CutTextPipe,
+    CardComponent
   ],
   imports: [CommonModule, SecurityRoutingModule, SharedModule]
 })

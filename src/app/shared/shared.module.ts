@@ -19,6 +19,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -41,7 +43,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     NativeDateModule,
     MatSnackBarModule,
     MatGridListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatCardModule
   ],
   exports: [
     MatFormFieldModule,
@@ -61,7 +65,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FormsModule,
     NativeDateModule,
     MatSnackBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatCardModule
   ]
 })
 export class SharedModule {}

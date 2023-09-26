@@ -1,0 +1,36 @@
+<mat-card *ngIf="isOpen" class="card-size p-3" id="miCaRd">
+  <mat-card-content>
+    <div class="d-flex">
+      <mat-icon>info</mat-icon>
+      <h3>AUDITORÍA</h3>
+    </div>
+    <h3 class="mb-3">CREACIÓN</h3>
+    <div>
+      <p>Usuario: {{ data.userCreated }}</p>
+      <p>Fecha: {{ formatDate(data.dateCreated) }}</p>
+    </div>
+    <div class="mb-4">
+      <h3>ÚLTIMA MODIFICACIÓN</h3>
+    </div>
+    <div class="mb-5">
+      <p>Usuario: {{ data.userUpdated }}</p>
+      <p>Fecha: {{ formatDate(data.dateUpdated) }}</p>
+    </div>
+    <button
+      (click)="closeCard()"
+      class="w-100 rounded-4 bg-black"
+      mat-raised-button
+      color="primary"
+    >
+      Cerrar
+    </button>
+  </mat-card-content>
+</mat-card>
+<button
+  (click)="openCard()"
+  class="rounded bg-black"
+  mat-raised-button
+  color="primary"
+>
+  Abrir componente
+</button>

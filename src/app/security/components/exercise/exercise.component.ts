@@ -19,6 +19,13 @@ export class ExerciseComponent {
   form!: FormGroup;
   maxDate: Date = new Date();
 
+  data: Info = {
+    userCreated: 'Javier',
+    dateCreated: new Date(),
+    userUpdated: 'Juan',
+    dateUpdated: new Date()
+  };
+
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       name: ['', [Validators.required, this.whiteSpace]],
@@ -102,4 +109,11 @@ export class ExerciseComponent {
   resetForm() {
     this.form.reset();
   }
+}
+
+interface Info {
+  userCreated: string;
+  dateCreated: Date;
+  userUpdated: string;
+  dateUpdated: Date;
 }
